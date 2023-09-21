@@ -44,7 +44,7 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
-    // Définir les relations ici (par exemple, la relation avec le panier)
+    // Définir les relations ici (par exemple, la relation avec le panier
     public function panier()
     {
         return $this->hasOne(Panier::class);
