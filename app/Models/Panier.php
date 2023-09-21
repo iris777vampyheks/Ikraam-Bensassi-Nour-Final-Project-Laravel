@@ -8,16 +8,19 @@ use Illuminate\Database\Eloquent\Model;
 class Panier extends Model
 {
     use HasFactory;
-    protected $fillable = ['name'];
 
-    // Définir les relations ici (par exemple, la relation avec l'utilisateur et les produits)
+    protected $fillable = [
+        'id_user',
+        'id_produit',
+    ];
+
     public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'id_user');
     }
 
-    public function produits()
+    public function produit()
     {
-        return $this->hasMany(Produit::class);
+        return $this->belongsTo(Produit::class, 'id_produit');
     }
 }

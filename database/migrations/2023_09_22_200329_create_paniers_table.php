@@ -13,7 +13,9 @@ return new class extends Migration
     {
         Schema::create('paniers', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->integer("id_user");
+            $table->integer("id_produit");
+
             $table->timestamps();
         });
     }

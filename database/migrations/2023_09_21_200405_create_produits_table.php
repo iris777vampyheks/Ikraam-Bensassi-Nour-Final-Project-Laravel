@@ -14,9 +14,11 @@ return new class extends Migration
         Schema::create('produits', function (Blueprint $table) {
             $table->id();
             $table->string('titre');
-            $table->string('image');
             $table->integer('prix');
+            $table->string('image');
+            $table->string('createur');
             $table->integer('stock');
+            $table->integer("categorie_id");
             $table->timestamps();
         });
     }
