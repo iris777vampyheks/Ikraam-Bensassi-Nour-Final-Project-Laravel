@@ -55,6 +55,22 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href='/contact'>Contact</a>
                                 </li>
+                                @role("admin")
+
+                                <li class="nav-item">
+                                    <a class="nav-link" href='/alluser'>Backend</a>
+                                </li>
+                                @endrole
+
+                                @role('webmaster')
+
+                                <li class="nav-item">
+                                    <a class="nav-link" href='/allproduitWM'>Backend</a>
+                                </li>
+
+                                @endrole
+
+
                             </ul>
                         </div>
                         <div class="hearer_icon d-flex">
@@ -62,17 +78,51 @@
 
                             <a href="/coeur"><i class="ti-heart"></i></a>
 
-                            <div class=" position-relative  ">
+                            <div class=" position-relative bg-black divpanier">
 
-                                <span class="  text-light panier">5</span>
+                                <span class="text-light panier">4</span>
 
-                                <a href="/panier"><i class="fas fa-cart-plus"></i></a>
+                                <a href="/panier"><i class="fas fa-cart-plus "></i></a>
 
                             </div>
 
-                            <a href="/login">
-                                <i class="fa-solid fa-right-to-bracket"></i>
-                            </a>
+
+
+
+                            @if (Route::has('login'))
+                                <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10">
+                                    @auth
+                                        <div class=" d-flex ">
+                                            <div class=" d-flex justify-content-center flex-column align-items-center">
+                                                <i class="fa-solid fa-user "></i>
+                                                {{ Auth::user()->name }}
+                                                
+                                            </div>
+                                            <form method="POST" action="{{ route('logout') }}">
+                                                @csrf
+
+                                                <x-dropdown-link :href="route('logout')"
+                                                    onclick="event.preventDefault();
+                                                                this.closest('form').submit();">
+
+                                                    <i class="fa-solid fa-right-from-bracket m-0 p-0"></i>
+                                                </x-dropdown-link>
+                                            </form>
+                                        </div>
+                                    @else
+                                        <a href="/login">
+                                            <i class="fa-solid fa-right-to-bracket"></i>
+                                        </a>
+                                    @endauth
+                                </div>
+                            @endif
+
+
+
+
+
+
+
 
 
 
@@ -90,7 +140,10 @@
                 </form>
             </div>
         </div>
+
     </header>
+
+
     <!-- Header part end-->
 
 
@@ -229,6 +282,8 @@
     <script src="js/mail-script.js"></script>
     <!-- custom js -->
     <script src="js/custom.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
 </body>
 
 </html>
