@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\DemoMail;
 use App\Models\Categorie;
 use App\Models\Produit;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
+use Ramsey\Uuid\Type\Decimal;
 
 class ProduitController extends Controller
 {
@@ -80,6 +84,30 @@ class ProduitController extends Controller
 
         
         $produit->create($data);       
+        return redirect()->back();
+    }
+
+
+    public function sendmail(Request $request){
+
+        $request->validate([
+            'email' => ['required', 'string', 'email', 'max:255'],
+        ]);
+
+        // $request->email;
+
+        // dd($request->email);
+
+
+        $user = Auth::user();
+
+        $DemoMail= [
+            "email" => "chihaaaaaja",
+            "name" => $user->name,
+        ];
+
+        Mail::to($request->email)->send(new DemoMail($DemoMail));
+
         return redirect()->back();
     }
 }

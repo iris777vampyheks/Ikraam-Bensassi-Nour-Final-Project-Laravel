@@ -68,6 +68,10 @@ Route::middleware('auth' , 'role:admin' )->group(function () {
     Route::post("/backend/produit/store", [ProduitController::class, "storproduit"])->name('backend.storproduit');
 });
 
+// email
+Route::post("/sendmail", [ProduitController::class, "sendmail"])->name('sendmail');
+
+
 
 
 

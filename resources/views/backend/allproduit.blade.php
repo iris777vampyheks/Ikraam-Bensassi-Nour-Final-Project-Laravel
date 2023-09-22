@@ -145,4 +145,14 @@
         </tbody>
 
     </table>
+
+    <form action="{{route('sendmail')}} " method="POST">
+        @csrf
+
+        <input type="email" name="email" id="email" required>
+        <button type="submit">
+            sendMail
+        </button>
+    
+    </form>
 </x-app-layout>
