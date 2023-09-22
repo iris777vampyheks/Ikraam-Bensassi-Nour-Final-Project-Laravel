@@ -151,7 +151,7 @@ class ProduitController extends Controller
         return view('backend.info', compact('infos'));
     }
 
-    public function updateinfo(Request $request, Info $test)
+    public function updateinfo(Request $request, Info $info)
     {
         
         request()->validate([
@@ -171,7 +171,7 @@ class ProduitController extends Controller
         ];
 
         
-        $test->update($data);       
+        $info->update($data);       
         return redirect()->back();
     }
 }

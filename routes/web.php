@@ -78,7 +78,7 @@ Route::middleware('auth', 'role:admin')->group(function () {
     // infoo
     Route::get("/info", [ProduitController::class, "info"])->name('backend.info');
 
-    Route::put("/boitemail/{info}", [ProduitController::class, "updateinfo"])->name('backend.updateinfo');
+    Route::put("/boitemail/{info}/info", [ProduitController::class, "updateinfo"])->name('backend.updateinfo');
 
 });
 
