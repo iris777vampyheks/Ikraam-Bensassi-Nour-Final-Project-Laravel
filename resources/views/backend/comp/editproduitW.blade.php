@@ -6,7 +6,7 @@
     </button>
     @else
     <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModalproduit{{$produit->id}}">
-        Modifier
+        Modifier 
     </button>
     @endif
 
