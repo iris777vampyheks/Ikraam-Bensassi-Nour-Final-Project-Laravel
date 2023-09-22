@@ -65,7 +65,7 @@ class ProduitWCntoller extends Controller
         $image = $request->file("image");
 
 
-        // $image->storePublicly('imgs/', 'public');
+        $image->storePublicly('imgs/product/', 'public');
 
 
 

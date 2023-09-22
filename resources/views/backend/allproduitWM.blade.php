@@ -108,9 +108,8 @@
                         {{ $produit->prix }}
                     </td>
                     <td>
-                        {{ $produit->image }}
+                        <img width="100" height="100" src="{{ asset('storage/imgs/product/' . $produit->image) }}">
 
-                        <img src="" alt="">
                     </td>
                     <td>
                         {{ $produit->stock }}

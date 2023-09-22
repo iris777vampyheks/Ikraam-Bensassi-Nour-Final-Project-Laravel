@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Mail\DemoMail;
+use App\Models\Boitemail;
 use App\Models\Categorie;
 use App\Models\Produit;
 use Illuminate\Http\Request;
@@ -36,12 +37,7 @@ class ProduitController extends Controller
 
         $image = $request->file("image");
 
-       
-
-        $image->storePublicly('imgs/', 'public');
-
-
-
+        $image->storePublicly('imgs/product/', 'public');
         $data = [
             "titre" => $request->titre,
             "prix" => $request->prix,
@@ -69,7 +65,7 @@ class ProduitController extends Controller
         $image = $request->file("image");
 
 
-        $image->storePublicly('imgs/', 'public');
+        $image->storePublicly('imgs/product/', 'public');
 
 
 
@@ -112,11 +108,12 @@ class ProduitController extends Controller
     }
 
     public function boitemail(){
-        return view('backend.boitemail');
+        $messages = Boitemail::all();
+        return view('backend.boitemail', compact('messages'));
     }
 
 
-    public function storemail(Request $request, Produit $produit)
+    public function storemessage(Request $request, Boitemail $boitemail)
     {
         
         request()->validate([
@@ -126,7 +123,7 @@ class ProduitController extends Controller
             "sujet" => ["required"],
         ]);
 
-       
+
 
         $data = [
             "name" => $request->name,
@@ -137,7 +134,13 @@ class ProduitController extends Controller
         ];
 
         
-        $produit->create($data);       
+        $boitemail->create($data);       
+        return redirect()->back();
+    }
+
+    public function updatmessage(Request $request, Boitemail $message)
+    {
+        $message->update(["show" => 1]);       
         return redirect()->back();
     }
 }

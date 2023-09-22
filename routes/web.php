@@ -42,35 +42,41 @@ Route::get('/allproduitWM', function () {
 })->middleware(['auth', 'role:webmaster'])->name('backend.allproduitWM');
 
 
-Route::middleware('auth' , 'role:webmaster' )->group(function () {    
+Route::middleware('auth', 'role:webmaster')->group(function () {
     // page webmaster Produit
     Route::get("/allproduitWM", [ProduitWCntoller::class, "index"])->name('backend.allproduitWM');
     Route::delete("/backend/produit/{produit}/webmaster", [ProduitWCntoller::class, "destroyproduit"])->name('backendW.destroyproduit');
     Route::put("/backend/produit/{produit}/webmaster", [ProduitWCntoller::class, "updateproduit"])->name('backendW.updateproduit');
 
     Route::post("/backend/produit/store/webmaster", [ProduitWCntoller::class, "storproduit"])->name('backendW.storproduit');
-
-
 });
 
-Route::middleware('auth' , 'role:admin' )->group(function () {    
+Route::middleware('auth', 'role:admin')->group(function () {
     // page admin User
     Route::get("/alluser", [RoleeController::class, "index"])->name('backend.alluser');
 
     Route::delete("/backend/{user}", [RoleeController::class, "destroyuser"])->name('backend.destroyuser');
-    Route::put("/backend/{user}", [RoleeController::class, "updateuser"])->name('backend.updateuser');   
-    
+    Route::put("/backend/{user}", [RoleeController::class, "updateuser"])->name('backend.updateuser');
+
     // page admin produit
     Route::get("/allproduit", [ProduitController::class, "index"])->name('backend.allproduit');
-    Route::get("/boitemail", [ProduitController::class, "boitemail"])->name('backend.boitemail');
 
     Route::delete("/backend/produit/{produit}", [ProduitController::class, "destroyproduit"])->name('backend.destroyproduit');
-    Route::put("/backend/produit/{produit}", [ProduitController::class, "updateproduit"])->name('backend.updateproduit');   
+    Route::put("/backend/produit/{produit}", [ProduitController::class, "updateproduit"])->name('backend.updateproduit');
     Route::post("/backend/produit/store", [ProduitController::class, "storproduit"])->name('backend.storproduit');
-});
 
-// email
-Route::post("/sendmail", [ProduitController::class, "sendmail"])->name('sendmail');
+    // email
+    Route::post("/sendmail", [ProduitController::class, "sendmail"])->name('sendmail');
+
+    Route::get("/boitemail", [ProduitController::class, "boitemail"])->name('backend.boitemail');
+    Route::put("boitemail/{message}", [ProduitController::class, "updatmessage"])->name('backend.updatmessage');
+
+
+    // contact
+    Route::post("/storemessage", [ProduitController::class, "storemessage"])->name('storemessage');
+
+
+});
 
 
 
@@ -87,4 +93,4 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
