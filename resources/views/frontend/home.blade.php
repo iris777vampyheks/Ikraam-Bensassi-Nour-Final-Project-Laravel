@@ -1,6 +1,5 @@
 @extends('layouts.frontend')
 @section('content')
-
     <!-- banner part start-->
     <section class="banner_part">
         <div class="container">
@@ -327,13 +326,23 @@
                                 <div id="seconds" class="date"></div>
                             </div>
                         </div>
-                        <div class="input-group">
-                            <input type="text" class="form-control" placeholder="enter email address"
-                                aria-label="Recipient's username" aria-describedby="basic-addon2">
-                            <div class="input-group-append">
-                                <a href="#" class="input-group-text btn_2" id="basic-addon2">book now</a>
+
+                        <form action="{{ route('sendmail') }} " method="POST">
+                            @csrf
+                            <div class="input-group">
+                                <input type="email" name="email" id="email" class="form-control"
+                                    placeholder="enter email address" aria-label="Recipient's username"
+                                    aria-describedby="basic-addon2" required>
+                                <button type="submit" class="input-group-text btn_2">
+                                    book now
+                                </button>
                             </div>
-                        </div>
+                        </form>
+
+
+
+
+
                     </div>
                 </div>
             </div>
@@ -405,13 +414,21 @@
                         <h5>Join Our Newsletter</h5>
                         <h2>Subscribe to get Updated
                             with new offers</h2>
-                        <div class="input-group">
-                            <input type="text" class="form-control" placeholder="enter email address"
-                                aria-label="Recipient's username" aria-describedby="basic-addon2">
-                            <div class="input-group-append">
-                                <a href="#" class="input-group-text btn_2" id="basic-addon2">subscribe now</a>
-                            </div>
-                        </div>
+
+
+                            <form action="{{ route('sendmail') }} " method="POST">
+                                @csrf
+                                <div class="input-group">
+                                    <input type="email" name="email" id="email" class="form-control"
+                                        placeholder="enter email address" aria-label="Recipient's username"
+                                        aria-describedby="basic-addon2" required>
+                                    <button type="submit" class="input-group-text btn_2">
+                                        subscribe now
+                                    </button>
+                                </div>
+                            </form>
+
+
                     </div>
                 </div>
             </div>
@@ -459,5 +476,4 @@
         </div>
     </section>
     <!--::subscribe_area part end::-->
-    
 @endsection

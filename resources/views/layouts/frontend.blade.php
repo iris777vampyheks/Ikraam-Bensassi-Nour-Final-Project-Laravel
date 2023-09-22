@@ -203,16 +203,16 @@
                         <h4>Newsletter</h4>
                         <p>Heaven fruitful doesn't over lesser in days. Appear creeping
                         </p>
-                        <div id="mc_embed_signup">
-                            <form target="_blank"
-                                action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01"
-                                method="get" class="subscribe_form relative mail_part">
-                                <input type="email" name="email" id="newsletter-form-email"
+                        <div>
+                            <form action="{{route('sendmail')}} " method="POST" class="subscribe_form relative mail_part">
+                                @csrf
+
+
+                                <input type="email" name="email" id="email"
                                     placeholder="Email Address" class="placeholder hide-on-focus"
-                                    onfocus="this.placeholder = ''" onblur="this.placeholder = ' Email Address '">
-                                <button type="submit" name="submit" id="newsletter-submit"
+                                    required>
+                                <button type="submit" 
                                     class="email_icon newsletter-submit button-contactForm">subscribe</button>
-                                <div class="mt-10 info"></div>
                             </form>
                         </div>
                     </div>
