@@ -30,6 +30,12 @@
                         {{ __('Boite de Messagerie') }}
                     </x-nav-link>
                 </div>
+
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('backend.info')" :active="request()->routeIs('backend.info')">
+                        {{ __('Info') }}
+                    </x-nav-link>
+                </div>
                 @endrole
 
                 @role('webmaster')

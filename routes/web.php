@@ -75,6 +75,10 @@ Route::middleware('auth', 'role:admin')->group(function () {
     // contact
     Route::post("/storemessage", [ProduitController::class, "storemessage"])->name('storemessage');
 
+    // infoo
+    Route::get("/info", [ProduitController::class, "info"])->name('backend.info');
+
+    Route::put("/boitemail/{info}", [ProduitController::class, "updateinfo"])->name('backend.updateinfo');
 
 });
 

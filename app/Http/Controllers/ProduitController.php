@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Mail\DemoMail;
 use App\Models\Boitemail;
 use App\Models\Categorie;
+use App\Models\Info;
 use App\Models\Produit;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -141,6 +142,36 @@ class ProduitController extends Controller
     public function updatmessage(Request $request, Boitemail $message)
     {
         $message->update(["show" => 1]);       
+        return redirect()->back();
+    }
+
+
+    public function info(){
+        $infos=Info::all();
+        return view('backend.info', compact('infos'));
+    }
+
+    public function updateinfo(Request $request, Info $test)
+    {
+        
+        request()->validate([
+            "adresse" => ["required"],
+            "tel" => ["required"],
+            "email" => ["required"],
+            "localisation" => ["required"],
+        ]);
+
+
+
+        $data = [
+            "adresse" => $request->adresse,
+            "tel" => $request->tel,
+            "email" => $request->email,
+            "localisation" => $request->localisation,
+        ];
+
+        
+        $test->update($data);       
         return redirect()->back();
     }
 }
