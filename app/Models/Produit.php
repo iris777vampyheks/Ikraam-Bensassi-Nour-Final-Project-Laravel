@@ -15,16 +15,13 @@ class Produit extends Model
         'image',
         'createur', 
         'stock',
-        'categorie_id', // Ajoutez cette colonne pour stocker la catégorie du produit
+        'categorie', // Ajoutez cette colonne pour stocker la catégorie du produit
 
 
     ];
 
     // Définir les relations ici (par exemple, la relation avec la catégorie et le panier)
-    public function categorie()
-    {
-        return $this->hasMany(Categorie::class);
-    }
+    
 
     public function panier()
     {

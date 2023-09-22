@@ -12,6 +12,7 @@
             </div>
             <div class="modal-body">
                 {{ $alluser->name }}
+                
                 <form action={{ route('backend.updateuser', $alluser->id) }} method="POST">
                     @csrf
                     @method('PUT')

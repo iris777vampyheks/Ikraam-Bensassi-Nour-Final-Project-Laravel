@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('image');
             $table->string('createur');
             $table->integer('stock');
-            $table->integer("categorie_id");
+            $table->string("categorie");
             $table->timestamps();
         });
     }
