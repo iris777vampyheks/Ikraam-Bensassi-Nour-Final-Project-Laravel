@@ -62,6 +62,7 @@ Route::middleware('auth' , 'role:admin' )->group(function () {
     
     // page admin produit
     Route::get("/allproduit", [ProduitController::class, "index"])->name('backend.allproduit');
+    Route::get("/boitemail", [ProduitController::class, "boitemail"])->name('backend.boitemail');
 
     Route::delete("/backend/produit/{produit}", [ProduitController::class, "destroyproduit"])->name('backend.destroyproduit');
     Route::put("/backend/produit/{produit}", [ProduitController::class, "updateproduit"])->name('backend.updateproduit');   

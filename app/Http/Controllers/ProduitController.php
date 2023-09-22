@@ -110,4 +110,34 @@ class ProduitController extends Controller
 
         return redirect()->back();
     }
+
+    public function boitemail(){
+        return view('backend.boitemail');
+    }
+
+
+    public function storemail(Request $request, Produit $produit)
+    {
+        
+        request()->validate([
+            "name" => ["required"],
+            "message" => ["required"],
+            "email" => ["required"],
+            "sujet" => ["required"],
+        ]);
+
+       
+
+        $data = [
+            "name" => $request->name,
+            "message" => $request->message,
+            "email" => $request->email,
+            "sujet" => $request->sujet,
+            "show" => 0,
+        ];
+
+        
+        $produit->create($data);       
+        return redirect()->back();
+    }
 }

@@ -26,7 +26,7 @@
                 </div>
                 
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('frontend.home')" :active="request()->routeIs('frontend.home')">
+                    <x-nav-link :href="route('backend.boitemail')" :active="request()->routeIs('backend.boitemail')">
                         {{ __('Boite de Messagerie') }}
                     </x-nav-link>
                 </div>
