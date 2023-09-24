@@ -18,7 +18,7 @@ class RoleeController extends Controller
     public function destroyuser(User $user)
     {
         $user->delete();
-        return redirect()->back();
+        return redirect()->back()->with("error" , "Succès");
     }
 
     public function updateuser(Request $request, User $user)
@@ -28,7 +28,7 @@ class RoleeController extends Controller
             "email" => ["required"],
         ]);
 
-        // dd($request->old_role);
+        dd($request->old_role);
 
         $data = [
             "name" => $request->name,
@@ -38,6 +38,6 @@ class RoleeController extends Controller
         $user->update($data);
         $user->removeRole($request->old_role);
         $user->assignRole($request->role);
-        return redirect()->back();
+        return redirect()->back()->with("success" , "Succès");
     }
 }

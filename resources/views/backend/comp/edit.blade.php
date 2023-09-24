@@ -1,6 +1,6 @@
 <!-- Button trigger modal -->
 <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal{{ $alluser->id }}">
-    Modifier
+    <i class="fa-solid fa-pen-to-square"></i>
 </button>
 
 <!-- Modal -->
@@ -18,17 +18,19 @@
                     @method('PUT')
 
                     <div class="mb-3">
-                        <label for="name" class="form-label">Email address</label>
+                        <label for="name" class="form-label">Nom</label>
                         <input type="text" name="name" value="{{ $alluser->name }}" class="form-control"
-                            id="name" aria-describedby="name">
+                            id="name" aria-describedby="name" required>
                     </div>
 
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Email address</label>
                         <input name="email" type="email" value=" {{ $alluser->email }}" class="form-control"
-                            id="exampleInputEmail1" aria-describedby="emailHelp">
+                            id="exampleInputEmail1" aria-describedby="emailHelp" required>
                     </div>
 
+
+                    <label for="role" class="form-label">Role</label>
                     <select name="role" class="form-select" aria-label="Default select example">
                         @foreach ($roles as $rolee)
                             @foreach ($alluser->roles as $role)

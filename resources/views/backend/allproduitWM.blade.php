@@ -10,8 +10,8 @@
     @endif
     <!-- Button trigger modal -->
     <div class=" text-center mt-20">
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-            add Produit
+        <button type="button" class="btn btn-success fs-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <i class="fa-solid fa-plus-minus"></i> Produit
         </button>
 
     </div>
@@ -97,7 +97,7 @@
         <tbody>
 
             @foreach ($produits as $produit)
-                <tr>
+                <tr valign="middle">
                     <th scope="row">
                         {{ $produit->id }}
                     </th>

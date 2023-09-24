@@ -2,11 +2,11 @@
   
     @if ($produit->createur)
     <button type="button" disabled class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModalproduit{{$produit->id}}">
-        Modifier
+        <i class="fa-solid fa-pen-to-square"></i>
     </button>
     @else
     <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModalproduit{{$produit->id}}">
-        Modifier 
+        <i class="fa-solid fa-pen-to-square"></i>
     </button>
     @endif
 

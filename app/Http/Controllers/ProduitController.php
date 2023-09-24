@@ -10,25 +10,28 @@ use App\Models\Produit;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Storage;
 use Ramsey\Uuid\Type\Decimal;
 
 class ProduitController extends Controller
 {
-    public function index(){
-        $categories= Categorie::all();
-        $produits= Produit::all();
-        return view('backend.allproduit' , compact("categories" , "produits"));
+    public function index()
+    {
+        $categories = Categorie::all();
+        $produits = Produit::all();
+        return view('backend.allproduit', compact("categories", "produits"));
     }
 
     public function destroyproduit(Produit $produit)
     {
+        Storage::disk("public")->delete('imgs/product/' . $produit->image);
         $produit->delete();
-        return redirect()->back();
+        return redirect()->back()->with("error" , "product deleted successfully");
     }
 
     public function updateproduit(Request $request, Produit $produit)
     {
-        
+
         request()->validate([
             "titre" => ["required"],
             "prix" => ["required"],
@@ -38,24 +41,39 @@ class ProduitController extends Controller
 
         $image = $request->file("image");
 
-        $image->storePublicly('imgs/product/', 'public');
-        $data = [
-            "titre" => $request->titre,
-            "prix" => $request->prix,
-            "stock" => $request->stock,
-            "categorie" => $request->categorie,
-            "createur" => 1,
-            // "image" => $image->hashName(),
-        ];
 
-        
-        $produit->update($data);       
-        return redirect()->back();
+        if ($image) {
+            Storage::disk("public")->delete('imgs/product/' . $produit->image);
+            $image->storePublicly('imgs/product/', 'public');
+            $data = [
+                "titre" => $request->titre,
+                "prix" => $request->prix,
+                "stock" => $request->stock,
+                "categorie" => $request->categorie,
+                "createur" => 1,
+                "image" => $image->hashName(),
+            ];
+
+            $produit->update($data);
+            return redirect()->back()->with("success" , "le produit a été modifié avec succès");
+        } else {
+            $data = [
+                "titre" => $request->titre,
+                "prix" => $request->prix,
+                "stock" => $request->stock,
+                "categorie" => $request->categorie,
+                "createur" => 1,
+            ];
+
+
+            $produit->update($data);
+            return redirect()->back()->with("success" , "le produit a été modifié avec succès");
+        }
     }
 
     public function storproduit(Request $request, Produit $produit)
     {
-        
+
         request()->validate([
             "titre" => ["required"],
             "prix" => ["required"],
@@ -79,36 +97,33 @@ class ProduitController extends Controller
             "image" => $image->hashName(),
         ];
 
-        
-        $produit->create($data);       
-        return redirect()->back();
+
+        $produit->create($data);
+        return redirect()->back()->with("success" , "le produit a été ajouter avec succès");
     }
 
 
-    public function sendmail(Request $request){
+    public function sendmail(Request $request)
+    {
 
         $request->validate([
             'email' => ['required', 'string', 'email', 'max:255'],
         ]);
 
-        // $request->email;
-
-        // dd($request->email);
-
-
         $user = Auth::user();
 
-        $DemoMail= [
+        $DemoMail = [
             "email" => "chihaaaaaja",
             "name" => $user->name,
         ];
 
         Mail::to($request->email)->send(new DemoMail($DemoMail));
 
-        return redirect()->back();
+        return redirect()->back()->with("success" , "le email a été envoiyer avec succès");
     }
 
-    public function boitemail(){
+    public function boitemail()
+    {
         $messages = Boitemail::all();
         return view('backend.boitemail', compact('messages'));
     }
@@ -116,7 +131,7 @@ class ProduitController extends Controller
 
     public function storemessage(Request $request, Boitemail $boitemail)
     {
-        
+
         request()->validate([
             "name" => ["required"],
             "message" => ["required"],
@@ -134,26 +149,27 @@ class ProduitController extends Controller
             "show" => 0,
         ];
 
-        
-        $boitemail->create($data);       
-        return redirect()->back();
+
+        $boitemail->create($data);
+        return redirect()->back()->with("success" , "le email a été envoiyer avec succès");
     }
 
     public function updatmessage(Request $request, Boitemail $message)
     {
-        $message->update(["show" => 1]);       
+        $message->update(["show" => 1]);
         return redirect()->back();
     }
 
 
-    public function info(){
-        $infos=Info::all();
+    public function info()
+    {
+        $infos = Info::all();
         return view('backend.info', compact('infos'));
     }
 
     public function updateinfo(Request $request, Info $info)
     {
-        
+
         request()->validate([
             "adresse" => ["required"],
             "tel" => ["required"],
@@ -170,8 +186,8 @@ class ProduitController extends Controller
             "localisation" => $request->localisation,
         ];
 
-        
-        $info->update($data);       
-        return redirect()->back();
+
+        $info->update($data);
+        return redirect()->back()->with("success" , "les infos de site web a été Modifier avec succès");
     }
 }

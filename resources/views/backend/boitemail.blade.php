@@ -14,7 +14,7 @@
         </thead>
         <tbody>
             @foreach ($messages as $message)
-                <tr class="@if ($message->show) table-success  @else  @endif ">
+                <tr class="@if ($message->show) table-success  @else  @endif   ">
                     <td>
                         {{ $message->id }}
                     </td>
@@ -36,12 +36,13 @@
                             @method('PUT')
 
                             <button type="submit">
-                                <i class="fa-solid fa-eye"></i>
-                            </button>
+                                <i class="fa-solid fa-check fa-2xl mb-3" style="color: #73ff00;"></i>                            </button>
                         </form>
-                        <button type="submit" class="btn btn-success" data-bs-toggle="modal"
+
+                        <button type="submit" class="btn btn-warning" data-bs-toggle="modal"
                         data-bs-target="#exampleModal{{ $message->sujet }}">
-                        Show
+                        <i class="fa-solid fa-eye"></i>
+
                     </button>
                         <!-- Button trigger modal -->
                         
