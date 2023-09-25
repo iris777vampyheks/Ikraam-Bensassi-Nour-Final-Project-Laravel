@@ -6,6 +6,17 @@
   background-image: linear-gradient(16deg, #ff005a 0%, #ff5d2d 64%, #ffba00 100%);
 }
 
+.tesdt{
+  color: aqua;
+}
+.indexz{
+  /* z-index: -4; */
+}
+
+.ddddd{
+  /* z-index: -2 !important; */
+}
+
 .panier{
   font-size: 9px;
   border-radius: 50%;

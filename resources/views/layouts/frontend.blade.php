@@ -64,7 +64,7 @@
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdown_2">
                                         <a class="dropdown-item" href="{{route('backend.allproduit')}}"> Produit</a>
                                         <a class="dropdown-item" href="{{route('backend.alluser')}}">Utilisateur</a>
-                                        <a class="dropdown-item" href="{{route('backend.info')}}">Info</a>
+                                        <a class="dropdown-item" href="{{route('backend.boitemail')}}">Info</a>
                                         <a class="dropdown-item" href="{{route('backend.boitemail')}}">Boit de Messages</a>
                                     </div>
                                 </li>
@@ -75,7 +75,7 @@
                                 <li class="nav-item dropdown">
                                     <a class="nav-link" href='/allproduitWM'>Backend</a>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdown_2">
-                                        <a class="dropdown-item" href="{{route('backend.allproduitWM')}}"> login</a>
+                                        <a class="dropdown-item" href="{{route('backend.allproduitWM')}}"> Produit</a>
                                 </li>
 
                                 @endrole

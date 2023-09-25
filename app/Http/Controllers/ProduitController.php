@@ -19,7 +19,7 @@ class ProduitController extends Controller
     {
         $categories = Categorie::all();
         $produits = Produit::all();
-        return view('backend.allproduit', compact("categories", "produits"));
+        return view('backend.admin.produit.produit', compact("categories", "produits"));
     }
 
     public function destroyproduit(Produit $produit)
@@ -125,7 +125,7 @@ class ProduitController extends Controller
     public function boitemail()
     {
         $messages = Boitemail::all();
-        return view('backend.boitemail', compact('messages'));
+        return view('backend.admin.message.boitemail', compact('messages'));
     }
 
 
@@ -161,11 +161,7 @@ class ProduitController extends Controller
     }
 
 
-    public function info()
-    {
-        $infos = Info::all();
-        return view('backend.info', compact('infos'));
-    }
+
 
     public function updateinfo(Request $request, Info $info)
     {

@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\InfoController;
 use App\Http\Controllers\ProduitController;
 use App\Http\Controllers\ProduitWCntoller;
 use App\Http\Controllers\ProfileController;
@@ -17,24 +19,22 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('frontend.home');
-})->name('frontend.home');
 
-Route::get('/contact', function () {
-    return view('frontend.contact');
-})->name('contact');
+Route::get("/", [HomeController::class, "index"])->name('frontend.home');
+
+Route::get("/contact", [InfoController::class, "contact"])->name('contact');
+
 
 Route::get('/shop', function () {
-    return view('frontend.shop');
+    return view('frontend.shop.shop');
 });
 
 Route::get('/panier', function () {
-    return view('frontend.panier');
+    return view('frontend.panier.panier');
 });
 
 Route::get('/coeur', function () {
-    return view('frontend.coeur');
+    return view('frontend.coeur.coeur');
 });
 
 Route::get('/allproduitWM', function () {
@@ -76,7 +76,7 @@ Route::middleware('auth', 'role:admin')->group(function () {
     Route::post("/storemessage", [ProduitController::class, "storemessage"])->name('storemessage');
 
     // infoo
-    Route::get("/info", [ProduitController::class, "info"])->name('backend.info');
+    Route::get("/info", [InfoController::class, "index"])->name('backend.info');
 
     Route::put("/boitemail/{info}/info", [ProduitController::class, "updateinfo"])->name('backend.updateinfo');
 

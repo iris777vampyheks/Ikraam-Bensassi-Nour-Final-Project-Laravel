@@ -12,7 +12,7 @@ class RoleeController extends Controller
     {
         $roles = Role::all();
         $allusers = User::all();
-        return view('backend.alluser', compact("allusers", "roles"));
+        return view('backend.admin.utilisateur.utilisateur', compact("allusers", "roles"));
     }
 
     public function destroyuser(User $user)
@@ -28,7 +28,7 @@ class RoleeController extends Controller
             "email" => ["required"],
         ]);
 
-        dd($request->old_role);
+        // dd($request->old_role);
 
         $data = [
             "name" => $request->name,

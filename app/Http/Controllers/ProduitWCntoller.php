@@ -12,7 +12,7 @@ class ProduitWCntoller extends Controller
     public function index(){
         $categories= Categorie::all();
         $produits= Produit::all();
-        return view('backend.allproduitWM' , compact("categories" , "produits"));
+        return view('backend.webmaster.produit.produit' , compact("categories" , "produits"));
     }
 
     public function destroyproduit(Produit $produit)
@@ -44,7 +44,7 @@ class ProduitWCntoller extends Controller
                 "prix" => $request->prix,
                 "stock" => $request->stock,
                 "categorie" => $request->categorie,
-                "createur" => 1,
+                "createur" => 0,
                 "image" => $image->hashName(),
             ];
 
@@ -56,7 +56,7 @@ class ProduitWCntoller extends Controller
                 "prix" => $request->prix,
                 "stock" => $request->stock,
                 "categorie" => $request->categorie,
-                "createur" => 1,
+                "createur" => 0,
             ];
 
 
