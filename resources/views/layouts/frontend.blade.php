@@ -61,12 +61,6 @@
 
                                 <li class="nav-item dropdown">
                                     <a class="nav-link" href='/alluser'>Backend</a>
-                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown_2">
-                                        <a class="dropdown-item" href="{{route('backend.allproduit')}}"> Produit</a>
-                                        <a class="dropdown-item" href="{{route('backend.alluser')}}">Utilisateur</a>
-                                        <a class="dropdown-item" href="{{route('backend.boitemail')}}">Info</a>
-                                        <a class="dropdown-item" href="{{route('backend.boitemail')}}">Boit de Messages</a>
-                                    </div>
                                 </li>
                                 @endrole
 
@@ -103,11 +97,6 @@
                                 <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10">
                                     @auth
                                         <div class=" d-flex ">
-                                            <div class=" d-flex justify-content-center flex-column align-items-center">
-                                                <i class="fa-solid fa-user "></i>
-                                                {{ Auth::user()->name }}
-                                                
-                                            </div>
                                             <form method="POST" action="{{ route('logout') }}">
                                                 @csrf
 
@@ -126,11 +115,6 @@
                                     @endauth
                                 </div>
                             @endif
-
-
-
-
-
 
 
 

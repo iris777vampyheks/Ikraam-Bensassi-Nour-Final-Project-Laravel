@@ -11,6 +11,7 @@
                 <div class="col-lg-8">
                     <div class="breadcrumb_iner">
                         <div class="breadcrumb_iner_item">
+
                             <h2>Shop Category</h2>
                             <p>Home <span>-</span> Shop Category</p>
                         </div>
@@ -71,6 +72,8 @@
                         <div class="col-lg-4 col-sm-6">
                             <div class="single_product_item">
                                 <img src="img/product/product_1.png" alt="">
+                                <img src="{{ asset('storage/imgs/product/image1.png') }}">
+
                                 <div class="single_product_text">
                                     <h4>Quartz Belt Watch</h4>
                                     <h3>$150.00</h3>
@@ -80,7 +83,7 @@
                         </div>
                         <div class="col-lg-4 col-sm-6">
                             <div class="single_product_item">
-                                <img src="img/product/product_2.png" alt="">
+                                <img src="{{ asset('storage/imgs/product/image2.png') }}">
                                 <div class="single_product_text">
                                     <h4>Quartz Belt Watch</h4>
                                     <h3>$150.00</h3>
@@ -90,7 +93,7 @@
                         </div>
                         <div class="col-lg-4 col-sm-6">
                             <div class="single_product_item">
-                                <img src="img/product/product_3.png" alt="">
+                                <img src="{{ asset('storage/imgs/product/image3.png') }}">
                                 <div class="single_product_text">
                                     <h4>Quartz Belt Watch</h4>
                                     <h3>$150.00</h3>
@@ -100,7 +103,7 @@
                         </div>
                         <div class="col-lg-4 col-sm-6">
                             <div class="single_product_item">
-                                <img src="img/product/product_4.png" alt="">
+                                <img src="{{ asset('storage/imgs/product/image4.png') }}">
                                 <div class="single_product_text">
                                     <h4>Quartz Belt Watch</h4>
                                     <h3>$150.00</h3>
@@ -110,7 +113,7 @@
                         </div>
                         <div class="col-lg-4 col-sm-6">
                             <div class="single_product_item">
-                                <img src="img/product/product_5.png" alt="">
+                                <img src="{{ asset('storage/imgs/product/image5.png') }}">
                                 <div class="single_product_text">
                                     <h4>Quartz Belt Watch</h4>
                                     <h3>$150.00</h3>
@@ -120,7 +123,7 @@
                         </div>
                         <div class="col-lg-4 col-sm-6">
                             <div class="single_product_item">
-                                <img src="img/product/product_6.png" alt="">
+                                <img src="{{ asset('storage/imgs/product/image6.png') }}">
                                 <div class="single_product_text">
                                     <h4>Quartz Belt Watch</h4>
                                     <h3>$150.00</h3>
@@ -130,7 +133,7 @@
                         </div>
                         <div class="col-lg-4 col-sm-6">
                             <div class="single_product_item">
-                                <img src="img/product/product_7.png" alt="">
+                                <img src="{{ asset('storage/imgs/product/image7.png') }}">
                                 <div class="single_product_text">
                                     <h4>Quartz Belt Watch</h4>
                                     <h3>$150.00</h3>
@@ -140,7 +143,7 @@
                         </div>
                         <div class="col-lg-4 col-sm-6">
                             <div class="single_product_item">
-                                <img src="img/product/product_8.png" alt="">
+                                <img src="{{ asset('storage/imgs/product/image8.png') }}">
                                 <div class="single_product_text">
                                     <h4>Quartz Belt Watch</h4>
                                     <h3>$150.00</h3>
@@ -150,7 +153,7 @@
                         </div>
                         <div class="col-lg-4 col-sm-6">
                             <div class="single_product_item">
-                                <img src="img/product/product_2.png" alt="">
+                                <img src="{{ asset('storage/imgs/product/image9.png') }}">
                                 <div class="single_product_text">
                                     <h4>Quartz Belt Watch</h4>
                                     <h3>$150.00</h3>

@@ -66,13 +66,4 @@
         </tbody>
 
     </table>
-    <form class="d-flex align-items-center justify-content-center" action="{{route('sendmail')}} " method="POST">
-        @csrf
-
-        <input type="email" name="email" id="email" required>
-        <button type="submit">
-            sendMail
-        </button>
-    
-    </form>
 </x-app-layout>

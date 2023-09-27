@@ -152,7 +152,7 @@ class ProduitSeeder extends Seeder
         Produit::create([
             'titre'=>'image19',
             'prix'=>50,
-            'image'=>'image19.png',
+            'image'=>'image22.png',
             'createur'=>1,
             'stock'=>3,
             'categorie'=>'Chaise en plastique',

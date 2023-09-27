@@ -12,7 +12,8 @@
         <div class="container">
             <div class="d-none d-sm-block mb-5 pb-4">
                 <div class=" text-center">
-                    <iframe src="{{$infos[0]->localisation}}" width="80%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d53211.03872224827!2d-7.659746285098378!3d33.53544672430533!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xda62d6834f7e94b%3A0x5d7196c6fff04acf!2sA%C3%AFn%20Chock%2C%20Casablanca!5e0!3m2!1sen!2sma!4v1695815623444!5m2!1sen!2sma" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
 
             </div>

@@ -3,7 +3,7 @@
         <div class="row align-items-center justify-content-between">
             <div class="col-lg-6 col-md-6">
                 <div class="offer_img">
-                    <img src="{{ asset('imgs/product/' . $produits[0]->image) }}">
+                    <img src="{{ asset('storage/imgs/product/' . $produits[0]->image) }}">
                 </div>
             </div>
             <div class="col-lg-6 col-md-6">

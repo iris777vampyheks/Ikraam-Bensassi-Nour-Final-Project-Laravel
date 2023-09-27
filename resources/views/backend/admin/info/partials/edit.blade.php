@@ -32,12 +32,7 @@
                         <input type="email" value="{{ $info->email }}" name="email"
                             class="form-control" id="email" aria-describedby="email" required>
                     </div>
-                    <div class="mb-3">
-                        <label for="name" class="form-label">Localisation (inserer le src de iframe) </label>
-                        <input type="text" value="{{ $info->localisation }}"
-                            name="localisation" class="form-control" id="localisation"
-                            aria-describedby="localisation" required>
-                    </div>
+                    
 
 
 

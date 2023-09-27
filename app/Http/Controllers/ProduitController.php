@@ -113,8 +113,7 @@ class ProduitController extends Controller
         $user = Auth::user();
 
         $DemoMail = [
-            "email" => "chihaaaaaja",
-            "name" => $user->name,
+            "name" =>  $request->email,
         ];
 
         Mail::to($request->email)->send(new DemoMail($DemoMail));
@@ -125,6 +124,7 @@ class ProduitController extends Controller
     public function boitemail()
     {
         $messages = Boitemail::all();
+        
         return view('backend.admin.message.boitemail', compact('messages'));
     }
 
@@ -149,6 +149,12 @@ class ProduitController extends Controller
             "show" => 0,
         ];
 
+        $DemoMail = [
+            "email" => $request->message,
+            "name" =>  $request->message,
+        ];
+
+        Mail::to($request->email)->send(new DemoMail($DemoMail));
 
         $boitemail->create($data);
         return redirect()->back()->with("success" , "le email a été envoiyer avec succès");
@@ -170,7 +176,6 @@ class ProduitController extends Controller
             "adresse" => ["required"],
             "tel" => ["required"],
             "email" => ["required"],
-            "localisation" => ["required"],
         ]);
 
 
@@ -179,7 +184,6 @@ class ProduitController extends Controller
             "adresse" => $request->adresse,
             "tel" => $request->tel,
             "email" => $request->email,
-            "localisation" => $request->localisation,
         ];
 
 
